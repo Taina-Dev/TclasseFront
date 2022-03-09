@@ -1,0 +1,21 @@
+.container{
+  position: relative;
+  background: rgb(238, 240, 239);
+  width: 100;
+  margin: auto;
+  padding: 40px 30px 30px;
+  box-shadow: 25px 25px 75px;
+}
+
+.jumbotron{
+  position: relative;
+  margin: auto;
+  background: linear-gradient(-135deg, #3d8de9,#010e31);
+}
+
+.container .jumbotron h1{
+  color: aliceblue;
+}
+
+
+

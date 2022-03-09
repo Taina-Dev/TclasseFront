@@ -1,0 +1,128 @@
+<div class="container">
+  <div class="jumbotron py-3">
+    <h1 class="text">Cadastro de Classe de Objeto</h1>
+  </div>
+  <br />
+  <form #form="ngForm">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Descrição?"
+      name="descricao"
+      #nome="ngModel"
+      [(ngModel)]="cadastroService.formData.descricao"
+      required
+    />
+    <br />
+    <div class="col-auto" style="text-align: right">
+      <button
+        type="button"
+        class="btn btn-success mb-2"
+       (click)="salvarRecord(form)"
+      >
+        + Adicionar
+      </button>
+    </div>
+    <div class="container">
+      <table id="myTable" class="table table-striped">
+        <thead class="thead-blue">
+          <tr>
+            <th class="col-xs-1">CÓDIGO</th>
+            <th class="col-xs-10 col-sm-10 col-md-10 col-lg-10">DESCRIÇÃO</th>
+            <th>AÇÕES</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-dark">
+            <td><input type="text" class="form-control"  placeholder="codigo" name="search" [(ngModel)]="filterTwo"></td>
+            <td><input type="text" class="form-control" placeholder="pesquisar" name="search" [(ngModel)]="filter"></td>
+             <td><i class="fa-solid fa-magnifying-glass"></i></td>
+          </tr>
+          <tr *ngFor="let cadastro of cadastros | filter:filter | filter:filterTwo">
+            <td>{{ cadastro.id }}</td>
+            <td>{{ cadastro.descricao }}</td>
+            <td>
+              <button
+                (click)="clicarPreecher(cadastro)"
+                class="btn btn-sm m-1"
+                data-toggle="modal"
+                data-target="#exampleModal"
+              >
+                <i class="fa-solid fa-pen"></i>
+              </button>
+              <button
+                (click)="excluir(cadastro.id)"
+                class="btn btn-danger btn-sm m-1"
+              >
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+</div>
+
+<!-- Modal Botão Editar -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Descrição</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="container">
+        <div class="jumbotron py-3">
+          <h1 class="text">Cadastro de Classe de Objeto</h1>
+        </div>
+        <br />
+        <form #form="ngForm">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Descrição?"
+            name="descricao"
+            #nome="ngModel"
+            [(ngModel)]="cadastroService.formData.descricao"
+            required
+          />
+          <br />
+          <div class="col-auto" style="text-align: right">
+            <button
+              (click)="atualizarRegistro(form)"
+              type="button"
+              class="btn btn-success mr-2 mb-2"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              + Editar
+            </button>
+            <button
+              (click)="resetForm(form)"
+              type="button"
+              class="btn btn-secondary mr-2 mb-2"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
