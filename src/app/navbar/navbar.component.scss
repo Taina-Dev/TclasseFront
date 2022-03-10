@@ -1,19 +1,16 @@
-
-.navbar{
+/* .navbar{
   position: relative;
   height: 50px;
-  color: #adb2b8;
+  color: #3d8de9;
 }
-
 .sidebar{
   position: fixed;
   height: 100%;
   width: 78px;
-  background: linear-gradient(-135deg, #4d5661,#010e31);
+  background: linear-gradient(-135deg, #3d8de9,#010e31);
 }
 .sidebar ul {
   margin-top: 20px;
-
 }
 .sidebar ul li{
   position: relative;
@@ -29,7 +26,6 @@ width: 60px;
 border-radius: 12px;
 color: rgb(242, 243, 237);
 }
-
 .sidebar ul li .tooltip{
   position: absolute;
   left: 122px;
@@ -46,14 +42,49 @@ color: rgb(242, 243, 237);
   opacity: 0;
   pointer-events: none;
 }
-
 .sidebar:active ul li .tooltip {
   display: none;
-
 }
-
 .sidebar ul li:hover .tooltip{
   transition: all 0.5s ease;
   opacity: 1;
   top:50%
+}
+ */
+ .modal {
+  width: 200px;
+
+}
+.modal-content {
+  width: 200px;
+  background: linear-gradient(-135deg, #3d8de9,#010e31);
+}
+
+ .list-group-item:hover {
+  background-color: rgba(89, 183, 238, 0.164) !important;
+}
+
+.icon-bar {
+  width: 100px; /* Set a specific width */
+  background: transform(-135deg, #3d8de9,#010e31); /* Dark-grey background */
+}
+
+.icon-bar a {
+  display: block; /* Make the links appear below each other instead of side-by-side */
+  text-align: center; /* Center-align text */
+  padding: 18px; /* Add some padding */
+  transition: all 0.3s ease;  /* Add transition for hover effects */
+  color: white; /* White text color */
+  font-size: 36px;  //* Increased font-size */
+
+}
+
+.icon-bar a:hover {
+  background-color: #3d8de9; /* Add a hover color */
+  border-radius: 12px;
+}
+
+.active {
+  background-color: #010e31; /* Add an active/current color */
+  border-radius: 12px;
 }

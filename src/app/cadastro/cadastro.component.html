@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <div class="jumbotron py-3">
     <h1 class="text">Cadastro de Classe de Objeto</h1>
   </div>
@@ -23,7 +23,7 @@
         + Adicionar
       </button>
     </div>
-    <div class="container">
+    <div class="container-fluid">
       <table id="myTable" class="table table-striped">
         <thead class="thead-blue">
           <tr>
@@ -45,8 +45,8 @@
               <button
                 (click)="clicarPreecher(cadastro)"
                 class="btn btn-sm m-1"
-                data-toggle="modal"
-                data-target="#exampleModal"
+                 data-toggle="modal"
+                 data-target="#exampleModal1"
               >
                 <i class="fa-solid fa-pen"></i>
               </button>
@@ -65,17 +65,17 @@
 </div>
 
 <!-- Modal Botão Editar -->
-<div
+<div class="container"
   class="modal fade"
-  id="exampleModal"
+  id="exampleModal1"
   tabindex="-1"
-  aria-labelledby="exampleModalLabel"
+  aria-labelledby="exampleModalLabel1"
   aria-hidden="true"
 >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Descrição</h5>
+        <h5 class="modal-title" id="exampleModalLabel1">Editar Descrição</h5>
         <button
           type="button"
           class="close"
@@ -125,4 +125,4 @@
       </div>
     </div>
   </div>
-</div>
+

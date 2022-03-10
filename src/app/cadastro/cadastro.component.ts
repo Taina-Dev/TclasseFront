@@ -5,7 +5,6 @@ import { ToastrService } from 'ngx-toastr';
 import { Cadastro } from '../models/cadastro';
 import { NgForm } from '@angular/forms';
 
-
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
@@ -26,6 +25,7 @@ export class CadastroComponent implements OnInit {
     this.getCadastro();
   }
 
+
   public getCadastro(){
     this.http.get('https://localhost:7052/api/ClassTainas').subscribe(
       (response) => {
@@ -34,22 +34,9 @@ export class CadastroComponent implements OnInit {
       (error) => console.log(error)
     );
   }
-
-  /* atualizarRegistro */
-  atualizarRegistro(form: NgForm) {
-    this.cadastroService.putCadastro().subscribe(
-      (res: any) => {
-        this.getCadastro();
-        this.resetForm(form);
-        this.toastr.info(' Editado com sucesso.');
-      },
-      (error) => {
-        if (error.status == 400) {
-          console.log(error);
-          this.toastr.error(error.error);
-        }
-      }
-    );
+  resetForm(form: NgForm) {
+    form.form.reset();
+    this.cadastroService.formData = new Cadastro();
   }
 
  /*  salvar */
@@ -74,11 +61,22 @@ export class CadastroComponent implements OnInit {
       }
     );
   }
-
-  resetForm(form: NgForm) {
-    form.form.reset();
-    this.cadastroService.formData = new Cadastro();
-  }
+  /* atualizarRegistro */
+atualizarRegistro(form: NgForm) {
+  this.cadastroService.putCadastro().subscribe(
+    (res: any) => {
+      this.getCadastro();
+      this.resetForm(form);
+      this.toastr.info(' Editado com sucesso.');
+    },
+    (error) => {
+      if (error.status == 400) {
+        console.log(error);
+        this.toastr.error(error.error);
+      }
+    }
+  );
+}
 
   /*  no botão editar */
   clicarPreecher(cadastro: Cadastro) {
@@ -102,5 +100,4 @@ export class CadastroComponent implements OnInit {
       )
     }
   }
-
 }

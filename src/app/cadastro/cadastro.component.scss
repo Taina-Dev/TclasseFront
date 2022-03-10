@@ -1,4 +1,4 @@
-.container{
+ .container-fluid{
   position: relative;
   background: rgb(238, 240, 239);
   width: 100;
@@ -13,7 +13,7 @@
   background: linear-gradient(-135deg, #3d8de9,#010e31);
 }
 
-.container .jumbotron h1{
+.jumbotron h1{
   color: aliceblue;
 }
 
