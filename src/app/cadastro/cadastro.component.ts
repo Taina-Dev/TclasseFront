@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Cadastro } from '../models/cadastro';
 import { NgForm } from '@angular/forms';
 
+
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
@@ -24,7 +25,6 @@ export class CadastroComponent implements OnInit {
     this.cadastroService.refresh();
     this.getCadastro();
   }
-
 
   public getCadastro(){
     this.http.get('https://localhost:7052/api/ClassTainas').subscribe(
@@ -53,9 +53,9 @@ export class CadastroComponent implements OnInit {
       (error) => {
         if (error.status == 400) {
           console.log(error);
-          this.toastr.error(
+           this.toastr.error(
             '',
-            "Atenção a Descrição não está preenchida"
+           "Atenção a Descrição não está preenchida"
           );
         }
       }
@@ -83,9 +83,8 @@ atualizarRegistro(form: NgForm) {
     this.cadastroService.formData = Object.assign({}, cadastro);
   }
 
-   /*  deletar registro */
+   /*  deletar registro*/
    excluir(id: number) {
-    if (confirm('Atenção deseja Apagar este registro?')) {
       this.cadastroService.deleteCadastro(id).subscribe(
         res => {
           this.getCadastro();
@@ -98,6 +97,8 @@ atualizarRegistro(form: NgForm) {
           }
         }
       )
-    }
+
   }
+
+
 }

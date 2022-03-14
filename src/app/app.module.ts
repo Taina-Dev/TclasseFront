@@ -8,8 +8,10 @@ import { FormsModule} from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {MatSidenavModule} from '@angular/material/sidenav';
-/* Componetes */
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
+/* Componetes */
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component'
@@ -30,7 +32,9 @@ import { NavbarComponent } from './navbar/navbar.component'
     FormsModule,
     Ng2SearchPipeModule,
     MatSidenavModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ModalModule.forRoot(),
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -23,6 +23,7 @@
         + Adicionar
       </button>
     </div>
+   <!--  TABELA -->
     <div class="container-fluid">
       <table id="myTable" class="table table-striped">
         <thead class="thead-blue">
@@ -36,7 +37,7 @@
           <tr class="table-dark">
             <td><input type="text" class="form-control"  placeholder="codigo" name="search" [(ngModel)]="filterTwo"></td>
             <td><input type="text" class="form-control" placeholder="pesquisar" name="search" [(ngModel)]="filter"></td>
-             <td><i class="fa-solid fa-magnifying-glass"></i></td>
+             <td><i class="fa fa-search"></i></td>
           </tr>
           <tr *ngFor="let cadastro of cadastros | filter:filter | filter:filterTwo">
             <td>{{ cadastro.id }}</td>
@@ -51,10 +52,15 @@
                 <i class="fa-solid fa-pen"></i>
               </button>
               <button
-                (click)="excluir(cadastro.id)"
-                class="btn btn-danger btn-sm m-1"
+                class="btn btn-danger btn-sm m-1" [swal]="{
+                  title: 'Atenção !!',
+                  text: 'Deseja Realmente Apagar o Registro ' + cadastro.id + '?',
+                  showDenyButton: true,
+                  denyButtonText: 'Não',
+                  confirmButtonText: 'Sim Apagar', icon: 'warning'
+                }" (confirm)="excluir(cadastro.id)"
               >
-                <i class="fa-solid fa-trash-can"></i>
+                 <i class="fa-solid fa-trash-can"></i>
               </button>
             </td>
           </tr>

@@ -7,13 +7,7 @@ import { Cadastro } from '../models/cadastro';
   providedIn: 'root'
 })
 export class CadastroService {
-  toggleSidebarPin() {
-    throw new Error('Method not implemented.');
-  }
-  toggleSidebar() {
-    throw new Error('Method not implemented.');
-  }
-
+ 
   readonly baseUrl='https://localhost:7052/api/ClassTainas';
   formData: Cadastro = new Cadastro();
   list: Cadastro [] = [];
