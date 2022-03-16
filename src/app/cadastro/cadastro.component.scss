@@ -14,8 +14,68 @@
 }
 
 .jumbotron h1{
+  font-size: 26px;
+  margin-top: 10px;
   color: aliceblue;
 }
+.jumbotron i{
+  color: white; /*  texto ou icone com cor  */
+  font-size: 36px;
+  margin-top: 10px;
+}
 
+button[tooltip].left {
+	&:before,
+	&:after {
+		transform: translateX(0px);
+	}
+
+	&:hover:after,
+	&:hover:before {
+		transform: translateX(-10px);
+	}
+}
+
+button[tooltip] {
+	position: relative;
+
+	&:after,
+	&:before {
+		position: absolute;
+		visibility: hidden;
+		opacity: 0;
+		transition: transform 200ms ease, opacity 200ms;
+		box-shadow: 0 0 10px rgba(black,0.3);
+		z-index: 99;
+	}
+
+	&:before {
+		content: attr(tooltip);
+		background: #010e31;
+		color: #fff;
+		font-size: 10px;
+		font-weight: bold;
+		padding: 10px 15px;
+		border-radius: 5px;
+		white-space: nowrap;
+		text-decoration: none;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+
+	&:after {
+		width: 0;
+		height: 0;
+		border: 6px solid transparent;
+		content: '';
+	}
+
+	&:hover:after,
+	&:hover:before {
+		visibility: visible;
+		opacity: 0.85;
+		transform: translateY(0px);
+	}
+}
 
 

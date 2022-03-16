@@ -1,10 +1,10 @@
 
  .modal {
-  width: 200px;
+  width: 255px;
 
 }
 .modal-content {
-  width: 200px;
+  width: 255px;
   background: linear-gradient(-135deg, #3d8de9,#010e31);
 }
 
@@ -24,7 +24,7 @@
   padding: 18px; /* Add some padding */
   transition: all 0.3s ease;  /* Add  Efeito transition para hover */
   color: white; /*  texto ou icone com cor  */
-  font-size: 36px;  
+  font-size: 36px;
   margin-top: 10px;
 }
 
@@ -38,3 +38,74 @@
   background-color: #010e31; /* Add ao active/uma cor fixa  */
   border-radius: 12px;
 }
+
+
+/* ANIMAÇÃO DO TOOLTIP */
+ a[tooltip].right {
+	&:before,
+	&:after {
+		transform: translateX(0px);
+	}
+
+	&:hover:after,
+	&:hover:before {
+		transform: translateX(10px);
+	}
+}
+
+a[tooltip] {
+	position: relative;
+
+	&:after,
+	&:before {
+		position: absolute;
+		visibility: hidden;
+		opacity: 0;
+		transition: transform 200ms ease, opacity 200ms;
+		box-shadow: 0 0 10px rgba(black,0.3);
+		z-index: 99;
+	}
+
+	&:before {
+		content: attr(tooltip);
+		background: #000;
+		color: #fff;
+		font-size: 10px;
+		font-weight: bold;
+		padding: 10px 15px;
+		border-radius: 5px;
+		white-space: nowrap;
+		text-decoration: none;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+
+	&:after {
+		width: 0;
+		height: 0;
+		border: 6px solid transparent;
+		content: '';
+	}
+
+	&:hover:after,
+	&:hover:before {
+		visibility: visible;
+		opacity: 0.85;
+		transform: translateY(0px);
+	}
+}
+
+// right tooltip
+a[tooltip][position="right"]:before {
+	top: -5%;
+	left: 100%;
+	margin-left: 10px;
+}
+
+a[tooltip][position="right"]:after {
+	border-right-color: #010e31;
+	border-left: none;
+	top: calc(50% - 6px);
+	left: calc(100% + 4px);
+}
+

@@ -1,3 +1,4 @@
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CadastroService } from '../services/cadastro.service';
@@ -16,6 +17,8 @@ export class CadastroComponent implements OnInit {
   public cadastros: any = [];
   filter: string = '';
   filterTwo: string ='';
+ 
+
 
   constructor(private http: HttpClient,
     public cadastroService: CadastroService,
@@ -27,7 +30,7 @@ export class CadastroComponent implements OnInit {
   }
 
   public getCadastro(){
-    this.http.get('https://localhost:7052/api/ClassTainas').subscribe(
+    this.http.get('https://localhost:7061/api/ClassTainaSoftDeletes').subscribe(
       (response) => {
         this.cadastros = response;
       },
@@ -53,14 +56,13 @@ export class CadastroComponent implements OnInit {
       (error) => {
         if (error.status == 400) {
           console.log(error);
-           this.toastr.error(
-            '',
-           "Atenção a Descrição não está preenchida"
-          );
+           this.toastr.error(error.error);
         }
+
       }
     );
   }
+
   /* atualizarRegistro */
 atualizarRegistro(form: NgForm) {
   this.cadastroService.putCadastro().subscribe(
@@ -97,8 +99,9 @@ atualizarRegistro(form: NgForm) {
           }
         }
       )
-
   }
+
+
 
 
 }

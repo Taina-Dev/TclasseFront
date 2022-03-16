@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="jumbotron py-3">
-    <h1 class="text">Cadastro de Classe de Objeto</h1>
+    <h1 class="text"><i class="fa-solid fa-address-book"></i> Cadastro SUSAUD | Parametrização</h1>
   </div>
   <br />
   <form #form="ngForm">
@@ -39,20 +39,24 @@
             <td><input type="text" class="form-control" placeholder="pesquisar" name="search" [(ngModel)]="filter"></td>
              <td><i class="fa fa-search"></i></td>
           </tr>
-          <tr *ngFor="let cadastro of cadastros | filter:filter | filter:filterTwo">
+          <tr *ngFor="let cadastro of cadastros | filter:filter | filter:filterTwo" >
             <td>{{ cadastro.id }}</td>
             <td>{{ cadastro.descricao }}</td>
             <td>
-              <button
-                (click)="clicarPreecher(cadastro)"
+               <button
                 class="btn btn-sm m-1"
-                 data-toggle="modal"
-                 data-target="#exampleModal1"
+                tooltip="EDITAR"
+                data-position="left"
+                (click)="clicarPreecher(cadastro)"
+                data-toggle="modal"
+                data-target="#exampleModal1"
               >
                 <i class="fa-solid fa-pen"></i>
               </button>
               <button
-                class="btn btn-danger btn-sm m-1" [swal]="{
+                 tooltip="APAGAR"
+                 data-position="left"
+                 class="btn btn-danger btn-sm m-1" [swal]="{
                   title: 'Atenção !!',
                   text: 'Deseja Realmente Apagar o Registro ' + cadastro.id + '?',
                   showDenyButton: true,
@@ -69,6 +73,7 @@
     </div>
   </form>
 </div>
+
 
 <!-- Modal Botão Editar -->
 <div class="container"
@@ -93,7 +98,7 @@
       </div>
       <div class="container">
         <div class="jumbotron py-3">
-          <h1 class="text">Cadastro de Classe de Objeto</h1>
+          <h1 class="text">Editar Cadastro SUSAUD  Parametrização</h1>
         </div>
         <br />
         <form #form="ngForm">

@@ -10,6 +10,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 /* Componetes */
 import { CadastroComponent } from './cadastro/cadastro.component';
@@ -32,6 +33,7 @@ import { NavbarComponent } from './navbar/navbar.component'
     FormsModule,
     Ng2SearchPipeModule,
     MatSidenavModule,
+    NgxPaginationModule,
     ToastrModule.forRoot(),
     ModalModule.forRoot(),
     SweetAlert2Module.forRoot()

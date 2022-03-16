@@ -7,8 +7,8 @@ import { Cadastro } from '../models/cadastro';
   providedIn: 'root'
 })
 export class CadastroService {
- 
-  readonly baseUrl='https://localhost:7052/api/ClassTainas';
+
+  readonly baseUrl='https://localhost:7061/api/ClassTainaSoftDeletes';
   formData: Cadastro = new Cadastro();
   list: Cadastro [] = [];
   constructor(private http: HttpClient) { }

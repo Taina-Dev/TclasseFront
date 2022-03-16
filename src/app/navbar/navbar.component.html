@@ -2,6 +2,11 @@
  <nav class="navbar navbar-light bg-light shadow">
   <div class="container-fluid">
     <span class="navbar-brand mb-0 h1" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="navbar-toggler-icon"></span> SUSAUD Parametrização</span>
+    <button type="button"
+     class="btn btn-outline-danger"
+      routerLink="Home">SAIR
+      <i class="fa-solid fa-arrow-right-to-bracket"></i>
+    </button>
   </div>
 </nav>
 <!-- MODAL -->
@@ -10,18 +15,22 @@
     <div class="modal-content">
       <div class="modal-body">
         <div class="icon-bar">
-          <a class="active" href="Home"><i class="fa fa-home"></i></a>
-          <a href="Cadastro"><i class="fa fa-search"></i></a>
-          <a href="https://www.castgroup.com.br/pt/fale-conosco/"><i class="fa fa-envelope"></i></a>
-          <a href="https://www.castgroup.com.br/pt/"><i class="fa fa-globe"></i></a>
-          <a href="#"><i class="fa fa-trash"></i></a>
+          <a class="active" href="Home"   tooltip="Home" position="right"><i class="fa fa-home"></i></a>
+          <a href="Cadastro"   tooltip="Cadastro" position="right"><i class="fa-solid fa-address-book"></i></a>
+          <a href="https://www.castgroup.com.br/pt/fale-conosco/"   tooltip="Fale-conosco" position="right"><i class="fa fa-envelope"></i></a>
+          <a href="https://www.castgroup.com.br/pt/"  tooltip="Site" position="right"><i class="fa fa-globe"></i></a>
+          <a href="https://www.linkedin.com/company/cast-group/"   tooltip="Linkedin" position="right"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.facebook.com/CastITGroup/" tooltip="Facebook" position="right"><i class="fa-brands fa-facebook-square"></i></a>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+         <div class="modal-footer">
+          <button type="button"  class="btn btn-outline-light" data-bs-dismiss="modal">Fechar
+          <i class="fa-solid fa-arrow-right-to-bracket"></i>
+        </button>
       </div>
     </div>
   </div>
 </div>
 <router-outlet></router-outlet>
+
 
