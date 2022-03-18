@@ -95,7 +95,7 @@ a[tooltip] {
 	}
 }
 
-// right tooltip
+/*  Modelando right tooltip */
 a[tooltip][position="right"]:before {
 	top: -5%;
 	left: 100%;
@@ -108,4 +108,4 @@ a[tooltip][position="right"]:after {
 	top: calc(50% - 6px);
 	left: calc(100% + 4px);
 }
-
+ 

@@ -23,30 +23,32 @@
         + Adicionar
       </button>
     </div>
-   <!--  TABELA -->
+
+    <!--  TABELA -->
     <div class="container-fluid">
-      <table id="myTable" class="table table-striped">
+      <div  id="myTable" class="table table-striped" style="width:1800px; height: 500px; overflow: auto;">
         <thead class="thead-blue">
           <tr>
             <th class="col-xs-1">CÓDIGO</th>
             <th class="col-xs-10 col-sm-10 col-md-10 col-lg-10">DESCRIÇÃO</th>
             <th>AÇÕES</th>
           </tr>
-        </thead>
-        <tbody>
           <tr class="table-dark">
             <td><input type="text" class="form-control"  placeholder="codigo" name="search" [(ngModel)]="filterTwo"></td>
-            <td><input type="text" class="form-control" placeholder="pesquisar" name="search" [(ngModel)]="filter"></td>
+            <td><input type="text" class="form-control" placeholder="pesquisar" name="search" [(ngModel)]="filtro"></td>
              <td><i class="fa fa-search"></i></td>
           </tr>
-          <tr *ngFor="let cadastro of cadastros | filter:filter | filter:filterTwo" >
+
+        </thead>
+        <tbody>
+          <tr *ngFor="let cadastro of cadastros |  filter:filtro | filter:filterTwo" >
             <td>{{ cadastro.id }}</td>
             <td>{{ cadastro.descricao }}</td>
             <td>
                <button
                 class="btn btn-sm m-1"
                 tooltip="EDITAR"
-                data-position="left"
+                data-position="top"
                 (click)="clicarPreecher(cadastro)"
                 data-toggle="modal"
                 data-target="#exampleModal1"
@@ -55,7 +57,7 @@
               </button>
               <button
                  tooltip="APAGAR"
-                 data-position="left"
+                 position="top"
                  class="btn btn-danger btn-sm m-1" [swal]="{
                   title: 'Atenção !!',
                   text: 'Deseja Realmente Apagar o Registro ' + cadastro.id + '?',
@@ -69,11 +71,10 @@
             </td>
           </tr>
         </tbody>
-      </table>
+      </div>
     </div>
   </form>
 </div>
-
 
 <!-- Modal Botão Editar -->
 <div class="container"
@@ -136,4 +137,5 @@
       </div>
     </div>
   </div>
+
 

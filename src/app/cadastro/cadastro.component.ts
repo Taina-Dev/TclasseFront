@@ -1,11 +1,10 @@
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CadastroService } from '../services/cadastro.service';
 import { ToastrService } from 'ngx-toastr';
 import { Cadastro } from '../models/cadastro';
 import { NgForm } from '@angular/forms';
-
 
 @Component({
   selector: 'app-cadastro',
@@ -15,19 +14,20 @@ import { NgForm } from '@angular/forms';
 export class CadastroComponent implements OnInit {
 
   public cadastros: any = [];
-  filter: string = '';
-  filterTwo: string ='';
- 
+  filtro = '';
+  filterTwo ='';
 
 
   constructor(private http: HttpClient,
     public cadastroService: CadastroService,
     private toastr: ToastrService) { }
 
+
   ngOnInit(): void {
     this.cadastroService.refresh();
     this.getCadastro();
   }
+
 
   public getCadastro(){
     this.http.get('https://localhost:7061/api/ClassTainaSoftDeletes').subscribe(
@@ -37,10 +37,13 @@ export class CadastroComponent implements OnInit {
       (error) => console.log(error)
     );
   }
+
   resetForm(form: NgForm) {
     form.form.reset();
     this.cadastroService.formData = new Cadastro();
   }
+
+
 
  /*  salvar */
   salvarRecord(form: NgForm) {
@@ -64,7 +67,7 @@ export class CadastroComponent implements OnInit {
   }
 
   /* atualizarRegistro */
-atualizarRegistro(form: NgForm) {
+  atualizarRegistro(form: NgForm) {
   this.cadastroService.putCadastro().subscribe(
     (res: any) => {
       this.getCadastro();
@@ -84,6 +87,7 @@ atualizarRegistro(form: NgForm) {
   clicarPreecher(cadastro: Cadastro) {
     this.cadastroService.formData = Object.assign({}, cadastro);
   }
+
 
    /*  deletar registro*/
    excluir(id: number) {

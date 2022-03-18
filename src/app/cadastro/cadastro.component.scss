@@ -24,7 +24,8 @@
   margin-top: 10px;
 }
 
-button[tooltip].left {
+/* ANIMAÇÃO DO TOOLTIP */
+button[tooltip].top {
 	&:before,
 	&:after {
 		transform: translateX(0px);
@@ -76,6 +77,8 @@ button[tooltip] {
 		opacity: 0.85;
 		transform: translateY(0px);
 	}
-}
 
+
+
+}
 

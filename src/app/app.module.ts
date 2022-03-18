@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule} from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import {MatSidenavModule} from '@angular/material/sidenav';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -32,7 +31,6 @@ import { NavbarComponent } from './navbar/navbar.component'
     HttpClientModule,
     FormsModule,
     Ng2SearchPipeModule,
-    MatSidenavModule,
     NgxPaginationModule,
     ToastrModule.forRoot(),
     ModalModule.forRoot(),
