@@ -26,7 +26,7 @@
 
     <!--  TABELA -->
     <div class="container-fluid">
-      <div  id="myTable" class="table table-striped" style="width:1800px; height: 500px; overflow: auto;">
+      <div  id="myTable" class="table table-striped" >
         <thead class="thead-blue">
           <tr>
             <th class="col-xs-1">CÓDIGO</th>
@@ -41,7 +41,7 @@
 
         </thead>
         <tbody>
-          <tr *ngFor="let cadastro of cadastros |  filter:filtro | filter:filterTwo" >
+          <tr *ngFor="let cadastro of cadastros |  filter:filtro | filter:filterTwo | paginate: { itemsPerPage: 4, currentPage: pages }" >
             <td>{{ cadastro.id }}</td>
             <td>{{ cadastro.descricao }}</td>
             <td>
@@ -71,8 +71,12 @@
             </td>
           </tr>
         </tbody>
-      </div>
-    </div>
+          <div class="d-flex justify-content-center">
+            <pagination-controls  previousLabel="Inicio"  nextLabel="Proximo"
+            (pageChange)="pages = $event"></pagination-controls>
+          </div>
+        </div>
+        </div>
   </form>
 </div>
 
@@ -88,14 +92,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel1">Editar Descrição</h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <hr>
       </div>
       <div class="container">
         <div class="jumbotron py-3">
